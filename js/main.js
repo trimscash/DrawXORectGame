@@ -146,7 +146,7 @@ function updateTweetButton() {
     tweetButton.hidden = false;
 
     let text1 = "I played "
-    let text2 = "\nscore: " + score + " 回 \n"
+    let text2 = "\nscore: " + score + "\n"
     text1 = encodeURI(text1)
     text2 = encodeURI(text2)
     let hashtag = encodeURI("DrawXORectGame🎯")
