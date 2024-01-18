@@ -144,15 +144,14 @@ function updateTweetButton() {
     let tweetButton = document.getElementById('tweetButton');
     tweetButton.hidden = false;
 
-    let text1 = result + "\n"
-    let text2 = "\n" + count + " 回 DrawXORectGame\n"
+    let text1 = "I played "
+    let text2 = "\nscore: " + score + " 回 \n"
     text1 = encodeURI(text1)
     text2 = encodeURI(text2)
-    let hashtag = encodeURI("DrawXORectGame")
+    let hashtag = encodeURI("DrawXORectGame🎯")
     let url = encodeURI("trimscash.github.io/DrawXORectGame");
     let encodedURL = "https://twitter.com/intent/tweet?&text=" + text1 + "%20%23" + hashtag + "%20" + text2 + "&url=" + url;
-    tweetBtn.setAttribute("href", encodedURL);
-
+    tweetButton.setAttribute("href", encodedURL);
 }
 
 function getRandomInt(min, max) {

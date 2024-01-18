@@ -1,0 +1,21 @@
+{
+	"name": "Draw XORect Game",
+	"short_name": "Draw XORect Game",
+	"start_url": ".",
+	"display": "standalone",
+	"background_color": "#fff",
+	"description": "Draw X, O and Rect Game...",
+	"icons": [
+		{
+			"src": "./images/icon.png",
+			"sizes": "1920x1920",
+			"type": "image/png"
+		}
+	],
+	"related_applications": [
+		{
+			"platform": "play",
+			"url": "https://trimscash.github.io/DrawXORectGame/"
+		}
+	]
+}
