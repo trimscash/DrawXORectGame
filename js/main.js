@@ -1,9 +1,9 @@
 import { cleanCanvas, drawed } from "./canvas.js";
 import { init, predict } from "./predict.js";
 
-const incorrect_sound = new Audio('../sounds/incorrect.mp3');
-const correct_sound = new Audio('../sounds/correct.mp3');
-const new_problem_sound = new Audio('../sounds/new_problem.mp3');
+const incorrect_sound = new Audio('./sounds/incorrect.mp3');
+const correct_sound = new Audio('./sounds/correct.mp3');
+const new_problem_sound = new Audio('./sounds/new_problem.mp3');
 
 const PROBLEMS = ["X", "CIRCLE", "RECT"]
 const PROBLEM_TIME = 5000;
