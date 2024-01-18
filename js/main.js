@@ -7,7 +7,7 @@ const new_problem_sound = new Audio('./sounds/new_problem.mp3');
 
 const PROBLEMS = ["X", "CIRCLE", "RECT"]
 const PROBLEM_TIME = 5000;
-let problem_time = 5000;
+let problem_time = PROBLEM_TIME;
 
 let nowProblem = ""
 let lifeNum = 3
@@ -86,6 +86,7 @@ async function checkAns() {
 async function start() {
     console.log("aa")
     await init();
+    problem_time = PROBLEM_TIME;
     nowProblem = ""
     lifeNum = 3
     incorrectNum = 0
