@@ -30,7 +30,7 @@ function gameover() {
 
 function updateProblemTime() {
     let d = 200
-    let min_time = 1500
+    let min_time = 1000
     problem_time = PROBLEM_TIME - score * d;
     if (problem_time <= min_time) {
         problem_time = min_time
