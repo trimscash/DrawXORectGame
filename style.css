@@ -61,6 +61,11 @@ canvas {
     font-size: 2em;
 }
 
+#status>div {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #time {
     font-size: 2em;
 }
@@ -70,6 +75,16 @@ canvas {
     font-size: 2em;
 }
 
+#tweetButtonImage {
+    margin: 10px;
+    width: 4vh;
+    position: relative;
+}
+
+a {
+    color: #503c14;
+    text-decoration: none;
+}
 
 
 

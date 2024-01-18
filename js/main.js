@@ -6,6 +6,7 @@ const correct_sound = new Audio('../sounds/correct.mp3');
 const new_problem_sound = new Audio('../sounds/new_problem.mp3');
 
 const PROBLEMS = ["X", "CIRCLE", "RECT"]
+const PROBLEM_TIME = 5000;
 let problem_time = 5000;
 
 let nowProblem = ""
@@ -16,6 +17,7 @@ let remainTime = problem_time;
 
 function gameover() {
     console.log("gameover")
+    updateTweetButton()
     let startButton = document.getElementById('startButton');
     startButton.hidden = false;
     let gameoverArea = document.getElementById('gameover');
@@ -27,7 +29,12 @@ function gameover() {
 }
 
 function updateProblemTime() {
-    problem_time
+    let d = 200
+    let min_time = 1500
+    problem_time = PROBLEM_TIME - score * d;
+    if (problem_time <= min_time) {
+        problem_time = min_time
+    }
 }
 
 async function onAnswerButtonPushed() {
@@ -36,6 +43,7 @@ async function onAnswerButtonPushed() {
 }
 
 function nextProblem() {
+    updateProblemTime();
     new_problem_sound.currentTime = 0;
     new_problem_sound.play();
 
@@ -88,6 +96,8 @@ async function start() {
     startButton.hidden = true;
     let gameoverArea = document.getElementById('gameover');
     gameoverArea.hidden = true;
+    let tweetButton = document.getElementById('tweetButton');
+    tweetButton.hidden = true;
 
     const scoreArea = document.getElementById('score');
     scoreArea.innerHTML = `🎯: ${score}`;
@@ -130,6 +140,24 @@ async function start() {
     }, 100);
 }
 
+function updateTweetButton() {
+    let tweetButton = document.getElementById('tweetButton');
+    tweetButton.hidden = false;
+
+    let text1 = result + "\n"
+    let text2 = "\n" + count + " 回 DrawXORectGame\n"
+    text1 = encodeURI(text1)
+    text2 = encodeURI(text2)
+    let hashtag = encodeURI("DrawXORectGame")
+    let url = encodeURI("trimscash.github.io/DrawXORectGame");
+    let encodedURL = "https://twitter.com/intent/tweet?&text=" + text1 + "%20%23" + hashtag + "%20" + text2 + "&url=" + url;
+    tweetBtn.setAttribute("href", encodedURL);
+
+}
+
+function getRandomInt(min, max) {
+    return min + Math.floor(Math.random() * (max - min));
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const answerButton = document.getElementById('answerButton');
@@ -143,7 +171,4 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function getRandomInt(min, max) {
-    return min + Math.floor(Math.random() * (max - min));
-}
 

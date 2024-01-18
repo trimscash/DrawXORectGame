@@ -8,6 +8,7 @@ ctx.strokeStyle = "#000";
 
 let flag = 0;
 canvas.addEventListener("mousedown", (e) => {
+    e.preventDefault();
     let [x, y] = getMousePosInCanvasFromMouseEvent(e);
     ctx.beginPath();
     ctx.moveTo(x, y)
@@ -16,6 +17,7 @@ canvas.addEventListener("mousedown", (e) => {
     drawed = true;
 });
 canvas.addEventListener("mousemove", (e) => {
+    e.preventDefault();
     if (flag) {
         let [x, y] = getMousePosInCanvasFromMouseEvent(e);
         ctx.lineTo(x, y);
@@ -26,9 +28,16 @@ canvas.addEventListener("mousemove", (e) => {
     }
 });
 canvas.addEventListener("mouseup", () => {
+    ctx.closePath();
     flag = 0;
     drawed = true;
 });
+
+canvas.addEventListener("mouseleave", () => {
+    ctx.closePath();
+    flag = 0;
+});
+
 
 
 canvas.addEventListener("touchstart", (e) => {
